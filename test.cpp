@@ -1,13 +1,5 @@
 #include <iostream>
 
-#include <gtest/gtest.h>
-// #include <boost/serialization/shared_ptr.hpp>
-#include <tesseract_common/serialization.h>
-#include <tesseract_common/utils.h>
-#include <tesseract_common/unit_test_utils.h>
-
-#include <tesseract_environment/command.h>
-#include <tesseract_environment/commands/change_joint_position_limits_command.h>
 
 #include <memory>
 #include <vector>
@@ -29,31 +21,25 @@
 
 #include <boost/filesystem.hpp>
 
-
+#include <gtest/gtest.h>
 
 #include <fstream>
-
+#define _USE_MATH_DEFINES
 #include <math.h>
 
+#include "util.h"
+#include "unit_test_utils.h"
+
+
 #include "cmd.h"
+#include "cmd2.h"
 
-// serialization.h
-
-
-#if 1
-// change_joint_position_limits_command.h
-
-
-
-// change_joint_position_limits_command.cpp
-#endif
 
 TEST(serialization_test,xml)
 {
-    using namespace tesseract_common;
-    auto object = std::make_shared<tesseract_environment::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
-    testSerialization<tesseract_environment::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
-    testSerializationDerivedClass<tesseract_environment::Command, tesseract_environment::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
 
 }
 
