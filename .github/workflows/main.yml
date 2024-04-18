@@ -12,12 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: johnwason/vcpkg-action@v6
+        id: vcpkg
         with:
-          id:vcpkg:
-          with:
-            pkgs: boost-serialization
-            github-binarycache: true
-            triplet: x64-windows-release
+          pkgs: boost-serialization
+          github-binarycache: true
+          triplet: x64-windows-release
       - name: configure
         run: |
           cmake -B build -S .
