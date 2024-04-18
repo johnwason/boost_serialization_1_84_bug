@@ -15,6 +15,7 @@ jobs:
           pkgs: boost-serialization
           github-binarycache: true
           triplet: x64-windows-release
+          token: ${{ github.token }}
       - name: configure
         run: |
           cmake -B build -S .
