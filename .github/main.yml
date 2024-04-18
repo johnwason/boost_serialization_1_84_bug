@@ -1,0 +1,29 @@
+name: main
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: johnwason/vcpkg-action@v6
+        with:
+          id:vcpkg:
+          with:
+            pkgs: boost-serialization
+            github-binarycache: true
+            triplet: x64-windows-release
+      - name: configure
+        run: |
+          cmake -B build -S .
+      - name: build
+        run: |
+          cmake --build build --config Release
+      - name: test
+        run: |
+          ctest -C Release --verbose
