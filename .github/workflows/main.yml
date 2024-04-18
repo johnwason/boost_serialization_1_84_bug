@@ -24,7 +24,7 @@ jobs:
           cache-key: ci-${{ matrix.os }}-${{ matrix.vcpkg_ref }}
       - name: configure
         run: |
-          cmake -B build -S .
+          cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }} -B build -S .
       - name: build
         run: |
           cmake --build build --config Release
