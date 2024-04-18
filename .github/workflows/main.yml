@@ -16,7 +16,7 @@ jobs:
       - uses: johnwason/vcpkg-action@v6
         id: vcpkg
         with:
-          pkgs: boost-serialization
+          pkgs: boost-serialization boost-filesystem
           github-binarycache: true
           triplet: x64-windows-release
           token: ${{ github.token }}
