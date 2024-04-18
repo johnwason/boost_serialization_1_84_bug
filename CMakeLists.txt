@@ -28,3 +28,7 @@ Boost::filesystem
 Boost::serialization
 GTest::GTest GTest::Main)
 
+enable_testing()
+
+add_test(NAME test_no_lib COMMAND test_no_lib_prog)
+add_test(NAME test_lib COMMAND test_lib_prog)
