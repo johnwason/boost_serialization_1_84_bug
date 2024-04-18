@@ -35,14 +35,53 @@
 #include "cmd2.h"
 
 
-TEST(serialization_test,xml)
+TEST(serialization_direct_test,xml)
 {
     auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
-    testSerialization<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
-    testSerializationDerivedClass<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+    testSerialization_xml<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_xml<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
 
 }
 
+TEST(serialization_derived_test,xml)
+{
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization_xml<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_xml<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+
+}
+
+TEST(serialization_direct_test,binary)
+{
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization_binary<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_binary<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+
+}
+
+TEST(serialization_derived_test,binary)
+{
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization_binary<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_binary<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+
+}
+
+TEST(serialization_direct_test,xml_string)
+{
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization_xml_string<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_xml_string<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+
+}
+
+TEST(serialization_derived_test,xml_string)
+{
+    auto object = std::make_shared<tesseract_environment1::ChangeJointPositionLimitsCommand>("joint6", -M_PI, M_PI);
+    testSerialization_xml_string<tesseract_environment1::ChangeJointPositionLimitsCommand>(*object, "ChangeJointPositionLimitsCommand");
+    testSerializationDerivedClass_xml_string<tesseract_environment1::Command, tesseract_environment1::ChangeJointPositionLimitsCommand>(object, "ChangeJointPositionLimitsCommand");
+
+}
 
 int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
