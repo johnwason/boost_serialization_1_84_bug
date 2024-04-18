@@ -5,11 +5,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(Boost REQUIRED COMPONENTS system filesystem serialization)
 find_package(GTest REQUIRED)
+find_package(tesseract_common REQUIRED)
+find_package(tesseract_environment REQUIRED)
 
-add_executable(test test.cpp)
-target_link_libraries(test Boost::boost
-Boost::system
-Boost::filesystem
-Boost::serialization
-GTest::GTest GTest::Main)
+add_executable(test test.cpp cmd.cpp)
+target_link_libraries(test GTest::GTest GTest::Main tesseract::tesseract_environment tesseract::tesseract_common
+)
 
