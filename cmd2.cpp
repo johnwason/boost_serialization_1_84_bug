@@ -48,8 +48,8 @@ bool ChangeJointPositionLimitsCommand::operator==(const ChangeJointPositionLimit
            tesseract_common::almostEqualRelativeAndAbs(p1.second, p2.second);
   };
   bool equal = true;
-  equal &= Command::operator==(rhs);
-  equal &= tesseract_common::isIdenticalMap<std::unordered_map<std::string, std::pair<double, double>>,
+  equal & Command::operator==(rhs);
+  equal & tesseract_common::isIdenticalMap<std::unordered_map<std::string, std::pair<double, double>>,
                                             std::pair<double, double>>(limits_, rhs.limits_, fn);
   return equal;
 }

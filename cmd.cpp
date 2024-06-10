@@ -12,14 +12,14 @@ template <class Archive>
 void save(Archive& ar, const CommandType& g, const unsigned int /*version*/)
 {
   int value = static_cast<int>(g);
-  ar &= BOOST_SERIALIZATION_NVP(value);
+  ar & BOOST_SERIALIZATION_NVP(value);
 }
 
 template <class Archive>
 void load(Archive& ar, CommandType& g, const unsigned int /*version*/)
 {
   int value = 0;
-  ar &= BOOST_SERIALIZATION_NVP(value);
+  ar & BOOST_SERIALIZATION_NVP(value);
   g = static_cast<CommandType>(value);
 }
 
@@ -32,7 +32,7 @@ void serialize(Archive& ar, CommandType& g, const unsigned int version)
 bool Command::operator==(const Command& rhs) const
 {
   bool equal = true;
-  equal &= type_ == rhs.type_;
+  equal & type_ == rhs.type_;
   return equal;
 }
 bool Command::operator!=(const Command& rhs) const { return !operator==(rhs); }  // LCOV_EXCL_LINE
