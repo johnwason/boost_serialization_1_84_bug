@@ -32,7 +32,7 @@ void serialize(Archive& ar, CommandType& g, const unsigned int version)
 bool Command::operator==(const Command& rhs) const
 {
   bool equal = true;
-  equal & type_ == rhs.type_;
+  equal &= type_ == rhs.type_;
   return equal;
 }
 bool Command::operator!=(const Command& rhs) const { return !operator==(rhs); }  // LCOV_EXCL_LINE
