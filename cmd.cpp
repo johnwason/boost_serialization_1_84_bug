@@ -45,4 +45,5 @@ void Command::serialize(Archive& ar, const unsigned int /*version*/)
 }  // namespace tesseract_environment
 
 #include "ser.h"
+BOOST_CLASS_EXPORT_IMPLEMENT(tesseract_environment1::Command)
 TESSERACT_SERIALIZE_ARCHIVES_INSTANTIATE(tesseract_environment1::Command)
